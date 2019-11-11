@@ -53,13 +53,13 @@ if ($this->request->is('post')) {
             'account' => $data['account'],
             'password' => $data['password']
         );
-        $user = Api::call(Configure::read('API.url_admins_login'), $param);
+        $user = Api::call(Configure::read('API.url_customers_login'), $param);
         if (Api::getError() || empty($user)) {
             $this->Flash->error(__('MESSAGE_LOGIN_FAIL'));
         } else {
             // Auth
             unset($user['password']);
-            $user['display_name'] = 'Admin';
+            $user['display_name'] = !empty($user['name']) ? $user['name'] : 'Admin';
             if (empty($user['avatar'])) {
                 $user['avatar'] = $this->BASE_URL . '/img/' . Configure::read('default_avatar');
             }

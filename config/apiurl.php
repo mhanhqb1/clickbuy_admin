@@ -17,6 +17,7 @@ Configure::write('API.url_customers_addupdate', 'customers/addupdate');
 Configure::write('API.url_customers_register', 'customers/register');
 Configure::write('API.url_customers_detail', 'customers/detail');
 Configure::write('API.url_customers_all', 'customers/all');
+Configure::write('API.url_customers_login', 'customers/login');
 
 Configure::write('API.url_reports_general', 'reports/general');
 
