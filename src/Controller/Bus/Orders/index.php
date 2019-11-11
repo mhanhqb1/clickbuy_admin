@@ -25,8 +25,8 @@ $this->SearchForm
             'label' => __('LABEL_NAME')
         ))
         ->addElement(array(
-            'id' => 'phone',
-            'label' => __('LABEL_TEL')
+            'id' => 'code',
+            'label' => __('LABEL_ORDER_CODE')
         ))
         ->addElement(array(
             'id' => 'limit',
@@ -67,22 +67,22 @@ $this->SimpleTable
             'width' => 50,
         ))
         ->addColumn(array(
+            'id' => 'code',
+            'title' => __('LABEL_ORDER_CODE'),
+            'empty' => ''
+        ))
+        ->addColumn(array(
             'id' => 'name',
             'title' => __('LABEL_NAME'),
             'empty' => ''
         ))
         ->addColumn(array(
-            'id' => 'address',
-            'title' => __('LABEL_ADDRESS'),
+            'id' => 'product',
+            'title' => __('LABEL_PRODUCT'),
             'empty' => ''
         ))
         ->addColumn(array(
-            'id' => 'phone',
-            'title' => __('LABEL_TEL'),
-            'empty' => ''
-        ))
-        ->addColumn(array(
-            'id' => 'total_price',
+            'id' => 'price',
             'title' => __('LABEL_ORDER_TOTAL'),
             'type' => 'currency',
             'width' => 120,
@@ -101,25 +101,25 @@ $this->SimpleTable
             'href' => $this->BASE_URL . '/' . $this->controller . '/detail/{id}',
             'button' => true,
             'width' => 50,
-        ))
-        ->addColumn(array(
-            'id' => 'disable',
-            'type' => 'checkbox',
-            'title' => __('LABEL_DELETE'),
-            'toggle' => true,
-            'toggle-onstyle' => "primary",
-            'toggle-offstyle' => "danger",
-            'toggle-options' => array(
-                "data-on" => __("LABEL_ENABLE"),
-                "data-off" => __("LABEL_DELETE"),
-            ),
-            'rules' => array(
-                '0' => '',
-                '1' => 'checked'
-            ),
-            'empty' => 0,
-            'width' => 50,
         ));
+//        ->addColumn(array(
+//            'id' => 'disable',
+//            'type' => 'checkbox',
+//            'title' => __('LABEL_DELETE'),
+//            'toggle' => true,
+//            'toggle-onstyle' => "primary",
+//            'toggle-offstyle' => "danger",
+//            'toggle-options' => array(
+//                "data-on" => __("LABEL_ENABLE"),
+//                "data-off" => __("LABEL_DELETE"),
+//            ),
+//            'rules' => array(
+//                '0' => '',
+//                '1' => 'checked'
+//            ),
+//            'empty' => 0,
+//            'width' => 50,
+//        ));
 
 $this->set('pageTitle', $pageTitle);
 $this->set('total', $total);
