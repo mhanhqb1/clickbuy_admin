@@ -21,3 +21,4 @@ Configure::write('API.url_reports_general', 'reports/general');
 
 Configure::write('API.url_orders_list', 'orders/list');
 Configure::write('API.url_orders_detail', 'orders/detail');
+Configure::write('API.url_orders_addupdate', 'orders/addupdate');

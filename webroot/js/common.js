@@ -25,11 +25,7 @@ $(document).ready(function ($) {
         return disableEnableMulti('enable');
     });
     $(".btn-addnew").click(function () {
-        if (controller == 'orders') {
-            location.href = baseUrl + '/' + controller + '/add';
-        } else {
-            location.href = baseUrl + '/' + controller + '/update';
-        }
+        location.href = baseUrl + '/' + controller + '/update';
         return false;
     });
     $(".btn-order-sell").click(function () {

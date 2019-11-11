@@ -62,7 +62,7 @@ $this->SimpleTable
             'id' => 'id',
             'title' => __('LABEL_ID'),
             'type' => 'link',
-            'href' => $this->BASE_URL . '/' . $this->controller . '/detail/{id}',
+            'href' => $this->BASE_URL . '/' . $this->controller . '/update/{id}',
             'empty' => '',
             'width' => 50,
         ))
@@ -97,10 +97,15 @@ $this->SimpleTable
         ))
         ->addColumn(array(
             'type' => 'link',
-            'title' => __('LABEL_DETAIL'),
-            'href' => $this->BASE_URL . '/' . $this->controller . '/detail/{id}',
+            'title' => __('LABEL_EDIT'),
+            'href' => $this->BASE_URL . '/' . $this->controller . '/update/{id}',
             'button' => true,
             'width' => 50,
+        ))
+        ->addButton(array(
+            'type' => 'submit',
+            'value' => __('LABEL_ADD_NEW'),
+            'class' => 'btn btn-success btn-addnew',
         ));
 //        ->addColumn(array(
 //            'id' => 'disable',
