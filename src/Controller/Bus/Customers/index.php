@@ -21,20 +21,12 @@ $this->SearchForm
         ->setAttribute('type', 'get')
         ->setData($dataSearch)
         ->addElement(array(
+            'id' => 'code',
+            'label' => __('LABEL_ORDER_CODE')
+        ))
+        ->addElement(array(
             'id' => 'name',
             'label' => __('LABEL_NAME')
-        ))
-        ->addElement(array(
-            'id' => 'address',
-            'label' => __('LABEL_ADDRESS')
-        ))
-        ->addElement(array(
-            'id' => 'phone',
-            'label' => __('LABEL_TEL')
-        ))
-        ->addElement(array(
-            'id' => 'email',
-            'label' => __('LABEL_EMAIL')
         ))
         ->addElement(array(
             'id' => 'limit',
@@ -72,21 +64,13 @@ $this->SimpleTable
             'width' => 20,
         ))
         ->addColumn(array(
+            'id' => 'code',
+            'title' => __('LABEL_ORDER_CODE'),
+            'empty' => ''
+        ))
+        ->addColumn(array(
             'id' => 'name',
             'title' => __('LABEL_NAME'),
-            'type' => 'link',
-            'href' => $this->BASE_URL . '/' . $this->controller . '/update/{id}',
-            'empty' => ''
-        ))
-        ->addColumn(array(
-            'id' => 'address',
-            'title' => __('LABEL_ADDRESS'),
-            'empty' => ''
-        ))
-        ->addColumn(array(
-            'id' => 'phone',
-            'title' => __('LABEL_TEL'),
-            'width' => 150,
             'empty' => ''
         ))
         ->addColumn(array(
@@ -96,18 +80,22 @@ $this->SimpleTable
             'empty' => ''
         ))
         ->addColumn(array(
+            'id' => 'phone',
+            'title' => __('LABEL_TEL'),
+            'width' => 150,
+            'empty' => ''
+        ))
+        ->addColumn(array(
+            'id' => 'address',
+            'title' => __('LABEL_ADDRESS'),
+            'empty' => ''
+        ))
+        ->addColumn(array(
             'id' => 'created',
             'type' => 'dateonly',
             'title' => __('LABEL_CREATED'),
             'width' => 100,
             'empty' => '',
-        ))
-        ->addColumn(array(
-            'type' => 'link',
-            'title' => __('LABEL_EDIT'),
-            'href' => $this->BASE_URL . '/' . $this->controller . '/update/{id}',
-            'button' => true,
-            'width' => 50,
         ))
         ->addColumn(array(
             'id' => 'disable',
@@ -126,25 +114,7 @@ $this->SimpleTable
             ),
             'empty' => 0,
             'width' => 50,
-        ))
-        ->addButton(array(
-            'type' => 'submit',
-            'value' => __('LABEL_ADD_NEW'),
-            'class' => 'btn btn-success btn-addnew',
         ));
-if (!empty($param['disable'])) {
-    $this->SimpleTable->addButton(array(
-            'type' => 'submit',
-            'value' => __('LABEL_ENABLE'),
-            'class' => 'btn asds btn-primary btn-enable',
-        ));
-} else {
-    $this->SimpleTable->addButton(array(
-            'type' => 'submit',
-            'value' => __('LABEL_DELETE'),
-            'class' => 'btn btn-danger btn-disable',
-        ));
-} 
 
 $this->set('pageTitle', $pageTitle);
 $this->set('total', $total);

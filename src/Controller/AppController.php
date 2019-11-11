@@ -218,7 +218,7 @@ class AppController extends Controller
      * Commont function set layout for view.
      */
     public function setLayout() {
-        if ($this->controller == 'login' || $this->controller == 'infos') {
+        if ($this->controller == 'login' || $this->controller == 'register') {
             $this->viewBuilder()->layout('empty');
         } else if ($this->controller == 'ajax') {
             $this->viewBuilder()->layout('ajax');
