@@ -22,8 +22,6 @@ if (!empty($id)) {
     $pageTitle = __('LABEL_ADD_NEW');
 }
 
-$codes = $this->Common->arrayKeyValue(Api::call(Configure::read('API.url_users_all')), 'id', 'code');
-
 // Create breadcrumb
 $listPageUrl = h($this->BASE_URL . '/orders');
 $this->Breadcrumb->setTitle($pageTitle)
@@ -54,8 +52,6 @@ $this->UpdateForm->reset()
     ->addElement(array(
         'id' => 'code',
         'label' => __('LABEL_ORDER_CODE'),
-        'options' => $codes,
-        'empty' => '-'
     ))
     ->addElement(array(
         'id' => 'phone',
