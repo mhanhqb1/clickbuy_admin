@@ -50,7 +50,7 @@ if ($this->request->is('post')) {
     if ($form->validate($data)) {
         // Call API to Login
         $param = array(
-            'email' => $data['account'],
+            'account' => $data['account'],
             'password' => $data['password']
         );
         $user = Api::call(Configure::read('API.url_admins_login'), $param);
@@ -59,9 +59,7 @@ if ($this->request->is('post')) {
         } else {
             // Auth
             unset($user['password']);
-            
-            $user['is_admin'] = !empty($user['admin_type']) ? 1 : 0;
-            $user['display_name'] = !empty($user['name']) ? $user['name'] : $user['login_id'];
+            $user['display_name'] = 'Admin';
             if (empty($user['avatar'])) {
                 $user['avatar'] = $this->BASE_URL . '/img/' . Configure::read('default_avatar');
             }
