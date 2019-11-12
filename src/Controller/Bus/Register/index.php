@@ -20,8 +20,10 @@ if ($this->request->is('post')) {
         'address' => $data['address']
     );
     $user = Api::call(Configure::read('API.url_customers_register'), $param);
-    if (Api::getError() || empty($user)) {
-        $this->Flash->error(__('Đăng ký không thành công'));
+    $error = Api::getError();
+    if ($error) {
+        $errMessage = $this->parseError($error);
+        $this->Flash->error(__($errMessage));
     } else {
         // Auth
         unset($user['password']);

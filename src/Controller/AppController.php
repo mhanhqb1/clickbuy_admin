@@ -422,4 +422,19 @@ class AppController extends Controller
         }
     }
     
+    public static function parseError($error) {
+        $errMessage = '';
+        foreach ($error as $err) {
+            if (is_array($err)) {
+                foreach ($err as $e) {
+                    $errMessage = $e;
+                    break;
+                }
+            } else {
+                $errMessage = $err;
+            }
+        }
+        return $errMessage;
+    }
+    
 }
