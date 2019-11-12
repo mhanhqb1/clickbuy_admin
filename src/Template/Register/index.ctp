@@ -1,6 +1,6 @@
 <div class="register-box">
     <div class="register-box-body">
-        <p class="login-box-msg">Đăng ký tài khoản</p>
+        <p class="login-box-msg">Đăng ký tài khoản nhận hoa hồng</p>
 
         <form action="<?php echo $BASE_URL;?>/register" method="post">
             <div class="form-group has-feedback">
