@@ -118,6 +118,9 @@ class AppController extends Controller
             if ($this->controller == 'login' && $this->action == 'index') {
                 return $this->redirect('/');
             }
+            if (isset($this->AppUI) && $this->AppUI['is_admin'] == 0 && $this->controller == 'orders') {
+                return $this->redirect('/');
+            }
         }
         
     }
@@ -218,7 +221,7 @@ class AppController extends Controller
      * Commont function set layout for view.
      */
     public function setLayout() {
-        if ($this->controller == 'login' || $this->controller == 'register') {
+        if ($this->controller == 'login' || $this->controller == 'register' || (isset($this->AppUI) && $this->AppUI['is_admin'] == 0)) {
             $this->viewBuilder()->layout('empty');
         } else if ($this->controller == 'ajax') {
             $this->viewBuilder()->layout('ajax');
