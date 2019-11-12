@@ -82,8 +82,13 @@ $this->SimpleTable
             'empty' => ''
         ))
         ->addColumn(array(
+            'id' => 'product_imei',
+            'title' => __('IMEI'),
+            'empty' => ''
+        ))
+        ->addColumn(array(
             'id' => 'price',
-            'title' => __('LABEL_ORDER_TOTAL'),
+            'title' => __('LABEL_PRICE'),
             'type' => 'currency',
             'width' => 120,
             'empty' => 0

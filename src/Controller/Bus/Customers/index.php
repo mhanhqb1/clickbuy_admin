@@ -86,9 +86,18 @@ $this->SimpleTable
             'empty' => ''
         ))
         ->addColumn(array(
-            'id' => 'address',
-            'title' => __('LABEL_ADDRESS'),
-            'empty' => ''
+            'id' => 'total_amount',
+            'title' => __('Hoa hồng'),
+            'type' => 'currency',
+            'width' => 120,
+            'empty' => 0
+        ))
+        ->addColumn(array(
+            'id' => 'withdraw_amount',
+            'title' => __('Số Tiền đã rút'),
+            'type' => 'currency',
+            'width' => 120,
+            'empty' => 0
         ))
         ->addColumn(array(
             'id' => 'created',

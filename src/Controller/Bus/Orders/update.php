@@ -66,6 +66,10 @@ $this->UpdateForm->reset()
         'label' => __('LABEL_PRODUCT'),
     ))
     ->addElement(array(
+        'id' => 'product_imei',
+        'label' => __('IMEI'),
+    ))
+    ->addElement(array(
         'id' => 'price',
         'label' => __('LABEL_PRICE'),
     ))

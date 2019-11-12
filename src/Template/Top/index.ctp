@@ -53,13 +53,13 @@
                                 <b><?php echo __('LABEL_ORDER_CODE');?>:</b> <a class="pull-right"><span style="font-size: 18px;" class="label label-warning"><?php echo $AppUI['code']; ?></span></a>
                             </li>
                             <li class="list-group-item">
-                                <b>Tổng đơn hàng:</b> <a class="pull-right"><?php echo !empty($data['order_history']) ? count($data['order_history']) : 0;?></a>
+                                <b>Tổng đơn hàng:</b> <a class="pull-right"><?php echo !empty($data['user']['order_count']) ? $data['user']['order_count'] : 0;?></a>
                             </li>
                             <li class="list-group-item">
-                                <b>Tổng tiền:</b> <a class="pull-right">0</a>
+                                <b>Tổng tiền:</b> <a class="pull-right"><?php echo !empty($data['user']['total_amount']) ? number_format($data['user']['total_amount']) : 0;?></a>
                             </li>
                             <li class="list-group-item">
-                                <b>Tiền đã rút:</b> <a class="pull-right">0</a>
+                                <b>Tiền đã rút:</b> <a class="pull-right"><?php echo !empty($data['user']['withdraw_amount']) ? number_format($data['user']['withdraw_amount']) : 0;?></a>
                             </li>
                         </ul>
 
