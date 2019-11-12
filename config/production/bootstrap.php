@@ -7,7 +7,7 @@ use Cake\Core\Configure;
 
 define('USE_SUB_DIRECTORY', '');
 
-Configure::write('API.Host', 'http://api.lyonabeauty.com/public/');
+Configure::write('API.Host', 'http://apicb.hoanganhonline.com/public/');
 Configure::write('Config.HTTPS', false);
 
 Configure::write('Config.CKeditor', array(
