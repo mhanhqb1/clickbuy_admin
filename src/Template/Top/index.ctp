@@ -151,7 +151,61 @@
                             <?php endif; ?>
                         </div>
                         <div class="tab-pane" id="withdrawHistory">
-                            Lịch sử rút tiền
+                            <?php if (!empty($data['withdraw_history'])): ?>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <h3 class="box-title">Lịch sử rút tiền</h3>
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body table-responsive no-padding">
+                                                <table class="table table-hover">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>STT</th>
+                                                            <th><?php echo __('Số tiền'); ?></th>
+                                                            <th><?php echo __('LABEL_NAME'); ?></th>
+                                                            <th><?php echo __('LABEL_TEL'); ?></th>
+                                                            <th><?php echo __('Số tài khoản'); ?></th>
+                                                            <th><?php echo __('Ngân hàng'); ?></th>
+                                                            <th><?php echo __('Trạng thái'); ?></th>
+                                                        </tr>
+                                                        <?php foreach ($data['withdraw_history'] as $k => $v): ?>
+                                                            <tr>
+                                                                <td><?php echo $k + 1; ?></td>
+                                                                <td><strong><?php echo number_format($v['amount']); ?></strong></td>
+                                                                <td><?php echo $v['name']; ?></td>
+                                                                <td><?php echo $v['phone']; ?></td>
+                                                                <td><?php echo $v['card_number']; ?></td>
+                                                                <td><?php echo $v['bank_name']; ?></td>
+                                                                <td>
+                                                                    <?php
+                                                                    $className = 'label-info';
+                                                                    $statusName = 'Chờ xét duyệt';
+                                                                    if ($v['status'] == 1) {
+                                                                        $className = 'label-success';
+                                                                        $statusName = 'Thành công';
+                                                                    } elseif ($v['status'] == 2) {
+                                                                        $className = 'label-danger';
+                                                                        $statusName = 'Thất bại';
+                                                                    }
+                                                                    ?>
+                                                                    <span class="label <?php echo $className;?>"><?php echo $statusName;?></span>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- /.box-body -->
+                                        </div>
+                                        <!-- /.box -->
+                                    </div>
+                                </div>
+                            <?php else: ?>
+                                <p>Bạn chưa rút tiền lần nào</p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
