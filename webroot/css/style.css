@@ -144,3 +144,17 @@ td, th {
 #add_new_customer {
     margin-right: 30px;
 }
+
+.withdraw_modal .modal {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    display: block;
+    z-index: 1;
+}
+
+.withdraw_modal .modal {
+    background: transparent !important;
+}

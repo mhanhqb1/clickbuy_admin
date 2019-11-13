@@ -50,20 +50,20 @@
 
                         <ul class="list-group list-group-unbordered">
                             <li class="list-group-item">
-                                <b><?php echo __('LABEL_ORDER_CODE');?>:</b> <a class="pull-right"><span style="font-size: 18px;" class="label label-warning"><?php echo $AppUI['code']; ?></span></a>
+                                <b><?php echo __('LABEL_ORDER_CODE'); ?>:</b> <a class="pull-right"><span style="font-size: 18px;" class="label label-warning"><?php echo $AppUI['code']; ?></span></a>
                             </li>
                             <li class="list-group-item">
-                                <b>Tổng đơn hàng:</b> <a class="pull-right"><?php echo !empty($data['user']['order_count']) ? $data['user']['order_count'] : 0;?></a>
+                                <b>Tổng đơn hàng:</b> <a class="pull-right"><?php echo!empty($data['user']['order_count']) ? $data['user']['order_count'] : 0; ?></a>
                             </li>
                             <li class="list-group-item">
-                                <b>Tổng tiền:</b> <a class="pull-right"><?php echo !empty($data['user']['total_amount']) ? number_format($data['user']['total_amount']) : 0;?></a>
+                                <b>Tổng tiền:</b> <a class="pull-right"><?php echo!empty($data['user']['total_amount']) ? number_format($data['user']['total_amount']) : 0; ?></a>
                             </li>
                             <li class="list-group-item">
-                                <b>Tiền đã rút:</b> <a class="pull-right"><?php echo !empty($data['user']['withdraw_amount']) ? number_format($data['user']['withdraw_amount']) : 0;?></a>
+                                <b>Tiền đã rút:</b> <a class="pull-right"><?php echo!empty($data['user']['withdraw_amount']) ? number_format($data['user']['withdraw_amount']) : 0; ?></a>
                             </li>
                         </ul>
 
-                        <a href="#" class="btn btn-primary btn-block"><b>Rút tiền</b></a>
+                        <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal-default"><b>Rút tiền</b></a>
                         <a href="<?php echo $BASE_URL; ?>/login/logout" class="btn btn-danger btn-block"><b>Đăng xuất</b></a>
                     </div>
                     <!-- /.box-body -->
@@ -108,44 +108,44 @@
                         </div>
                         <div class="tab-pane" id="orderHistory">
                             <?php if (!empty($data['order_history'])): ?>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="box">
-                                        <div class="box-header">
-                                            <h3 class="box-title">Danh sách đơn hàng</h3>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <h3 class="box-title">Danh sách đơn hàng</h3>
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body table-responsive no-padding">
+                                                <table class="table table-hover">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>STT</th>
+                                                            <th><?php echo __('LABEL_ORDER_CODE'); ?></th>
+                                                            <th><?php echo __('LABEL_NAME'); ?></th>
+                                                            <th><?php echo __('LABEL_TEL'); ?></th>
+                                                            <th><?php echo __('LABEL_ADDRESS'); ?></th>
+                                                            <th><?php echo __('LABEL_PRODUCT'); ?></th>
+                                                            <th><?php echo __('LABEL_PRICE'); ?></th>
+                                                        </tr>
+                                                        <?php foreach ($data['order_history'] as $k => $v): ?>
+                                                            <tr>
+                                                                <td><?php echo $k + 1; ?></td>
+                                                                <td><span class="label label-primary"><?php echo $v['code']; ?></span></td>
+                                                                <td><?php echo $v['name']; ?></td>
+                                                                <td><?php echo $v['phone']; ?></td>
+                                                                <td><?php echo $v['address']; ?></td>
+                                                                <td><?php echo $v['product']; ?></td>
+                                                                <td><?php echo number_format($v['price']); ?></td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- /.box-body -->
                                         </div>
-                                        <!-- /.box-header -->
-                                        <div class="box-body table-responsive no-padding">
-                                            <table class="table table-hover">
-                                                <tbody>
-                                                    <tr>
-                                                        <th>STT</th>
-                                                        <th><?php echo __('LABEL_ORDER_CODE');?></th>
-                                                        <th><?php echo __('LABEL_NAME');?></th>
-                                                        <th><?php echo __('LABEL_TEL');?></th>
-                                                        <th><?php echo __('LABEL_ADDRESS');?></th>
-                                                        <th><?php echo __('LABEL_PRODUCT');?></th>
-                                                        <th><?php echo __('LABEL_PRICE');?></th>
-                                                    </tr>
-                                                    <?php foreach ($data['order_history'] as $k => $v):?>
-                                                    <tr>
-                                                        <td><?php echo $k + 1;?></td>
-                                                        <td><span class="label label-primary"><?php echo $v['code'];?></span></td>
-                                                        <td><?php echo $v['name'];?></td>
-                                                        <td><?php echo $v['phone'];?></td>
-                                                        <td><?php echo $v['address'];?></td>
-                                                        <td><?php echo $v['product'];?></td>
-                                                        <td><?php echo number_format($v['price']);?></td>
-                                                    </tr>
-                                                    <?php endforeach; ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- /.box-body -->
+                                        <!-- /.box -->
                                     </div>
-                                    <!-- /.box -->
                                 </div>
-                            </div>
                             <?php else: ?>
                                 <p>Bạn chưa có đơn hàng nào</p>
                             <?php endif; ?>
@@ -158,6 +158,49 @@
             </div>
         </div>
     </section>
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><strong>Yêu cầu rút tiền</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="<?php echo $BASE_URL;?>" role="form">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label>Họ tên</label>
+                                <input type="text" class="form-control" name="name" value="<?php echo $AppUI['display_name'];?>" placeholder="Nhập họ tên" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label>Số điện thoại liên hệ</label>
+                                <input type="text" class="form-control" value="<?php echo $AppUI['phone'];?>" name="phone" placeholder="Nhập số điện thoại liên hệ" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label>Số tài khoản</label>
+                                <input type="text" class="form-control" name="card_number" placeholder="Nhập số tài khoản ngân hàng" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label>Tên ngân hàng</label>
+                                <input type="text" class="form-control" name="bank_name" placeholder="Nhập tên ngân hàng - chi nhánh" required="required">
+                            </div>
+                            <div class="form-group">
+                                <p class="help-block">Vui lòng điền đúng thông tin để chúng tôi có thể hỗ trợ bạn tốt nhất.</p>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+
+                        <div class="box-footer center-block">
+                            <button type="submit" class="btn btn-primary">Gửi</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 
 <?php endif; ?>
 
