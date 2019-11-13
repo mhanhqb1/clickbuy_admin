@@ -126,6 +126,7 @@
                                                             <th><?php echo __('LABEL_ADDRESS'); ?></th>
                                                             <th><?php echo __('LABEL_PRODUCT'); ?></th>
                                                             <th><?php echo __('LABEL_PRICE'); ?></th>
+                                                            <th><?php echo __('LABEL_CREATED'); ?></th>
                                                         </tr>
                                                         <?php foreach ($data['order_history'] as $k => $v): ?>
                                                             <tr>
@@ -136,6 +137,7 @@
                                                                 <td><?php echo $v['address']; ?></td>
                                                                 <td><?php echo $v['product']; ?></td>
                                                                 <td><?php echo number_format($v['price']); ?></td>
+                                                                <td><?php echo date('Y-m-d H:i:s', $v['created']); ?></td>
                                                             </tr>
                                                         <?php endforeach; ?>
                                                     </tbody>
