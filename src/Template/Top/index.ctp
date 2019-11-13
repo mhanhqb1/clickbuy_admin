@@ -170,6 +170,7 @@
                                                             <th><?php echo __('Số tài khoản'); ?></th>
                                                             <th><?php echo __('Ngân hàng'); ?></th>
                                                             <th><?php echo __('Trạng thái'); ?></th>
+                                                            <th><?php echo __('LABEL_CREATED'); ?></th>
                                                         </tr>
                                                         <?php foreach ($data['withdraw_history'] as $k => $v): ?>
                                                             <tr>
@@ -193,6 +194,7 @@
                                                                     ?>
                                                                     <span class="label <?php echo $className;?>"><?php echo $statusName;?></span>
                                                                 </td>
+                                                                <td><?php echo date('Y-m-d H:i:s', $v['created']); ?></td>
                                                             </tr>
                                                         <?php endforeach; ?>
                                                     </tbody>
