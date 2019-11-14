@@ -26,3 +26,4 @@ Configure::write('API.url_orders_detail', 'orders/detail');
 Configure::write('API.url_orders_addupdate', 'orders/addupdate');
 
 Configure::write('API.url_withdraws_request', 'withdraws/request');
+Configure::write('API.url_withdraws_list', 'withdraws/list');

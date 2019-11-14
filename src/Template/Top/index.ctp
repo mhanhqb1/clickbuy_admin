@@ -191,7 +191,7 @@
                                                                         $statusName = 'Thành công';
                                                                     } elseif ($v['status'] == 2) {
                                                                         $className = 'label-danger';
-                                                                        $statusName = 'Thất bại';
+                                                                        $statusName = 'Không được duyệt';
                                                                     }
                                                                     ?>
                                                                     <span class="label <?php echo $className;?>"><?php echo $statusName;?></span>

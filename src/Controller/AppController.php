@@ -118,7 +118,11 @@ class AppController extends Controller
             if ($this->controller == 'login' && $this->action == 'index') {
                 return $this->redirect('/');
             }
-            if (isset($this->AppUI) && $this->AppUI['is_admin'] == 0 && $this->controller == 'orders') {
+            $arrayControllers = array(
+                'orders',
+                'requests'
+            );
+            if (isset($this->AppUI) && $this->AppUI['is_admin'] == 0 && (in_array($this->controller, $arrayControllers))) {
                 return $this->redirect('/');
             }
         }
