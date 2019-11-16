@@ -78,33 +78,45 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="about">
-                            <ul class="timeline timeline-inverse">
-                                <li class="time-label">
-                                    <span class="bg-red">
-                                        ClickBuy Đà Nẵng
-                                    </span>
-                                </li>
-                                <li>
-                                    <i class="fa fa-envelope bg-blue"></i>
-
-                                    <div class="timeline-item">
-                                        <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-                                        <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-                                        <div class="timeline-body">
-                                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                                            weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                                            jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                                            quora plaxo ideeli hulu weebly balihoo...
-                                        </div>
-                                        <div class="timeline-footer">
-                                            <a class="btn btn-primary btn-xs">Read more</a>
-                                            <a class="btn btn-danger btn-xs">Delete</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                            <img class="img-responsive" style="width:100%;" src="<?php echo $BASE_URL; ?>/img/gioi-thieu-lien-tay.jpg" alt="GIỚI THIỆU LIỀN TAY – NHẬN NGAY TIỀN"/>
+                            <br/>
+                            <p>
+                                Để tri ân khách hàng hơn 1 năm qua đã tin tưởng và ủng hộ <a href="https://dn.clickbuy.com.vn/"><strong>CLICKBUY ĐÀ NẴNG</strong></a>.
+                            </p>
+                            <p>
+                                Nay <a href="https://dn.clickbuy.com.vn/"><strong>CLICKBUY ĐÀ NẴNG</strong></a> ra chương trình tri ân khách hàng thân thiết bằng chiết khấu hoa hồng cho quý khách hàng  khi giới thiệu bạn bè, người thân , đồng nghiệp … Tới tại <strong>161 Hàm Nghi – Đà Nẵng</strong> mua bất kì sản phẩm tại Cửa Hàng sẽ được khuyến mãi chiết khấu lên đến <strong>500K</strong>
+                            </p>
+                            <div class="box box-solid">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Điều kiện tham gia</h3>
+                                </div>
+                                <div class="box-body">
+                                    <dl class="dl-horizontal">
+                                        <dt>Thời gian áp dụng:</dt>
+                                        <dd>Bắt đầu từ ngày 20/11/2019</dd>
+                                        <dt>Địa điểm áp dụng:</dt>
+                                        <dd>161 Hàm Nghi – Đà Nẵng</dd>
+                                        <dt>Yêu cầu áp dụng:</dt>
+                                        <dd>Khách hàng có mã giới thiệu tại ClickBuy Đà Nẵng</dd>
+                                    </dl>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                            <div class="box box-solid">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Nội dung chương trình</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <p>1. Khách hàng tạo mã giới thiệu.</p>
+                                    <p>2. Khách hàng có mã giới thiệu sẽ được giảm 100k khi mua máy tại 161 Hàm Nghi Đà Nẵng.</p>
+                                    <p>3. Khách hàng tặng Mã giới thiệu cho người thân cũng sẽ được giảm 100k khi người đó tới mua hàng. Khách hàng cũng sẽ được tặng 100K vào tài khoản nếu người thân mua hàng thành công.</p>
+                                    <p>4. Khi khách hàng giới thiệu được 10 lần trở đi sẽ được Chiết khấu hoa hồng lên đến 500K.</p>
+                                    <p>5. Khách hàng có mã giới thiệu cũng sẽ được mua phụ kiện và sửa chữa DV giảm lên đến 30%.</p>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
                         </div>
                         <div class="tab-pane" id="orderHistory">
                             <?php if (!empty($data['order_history'])): ?>
@@ -187,7 +199,7 @@
                                                                     $className = $statusConfig[$v['status']]['label'];
                                                                     $statusName = $statusConfig[$v['status']]['name'];
                                                                     ?>
-                                                                    <span class="label <?php echo $className;?>"><?php echo $statusName;?></span>
+                                                                    <span class="label <?php echo $className; ?>"><?php echo $statusName; ?></span>
                                                                 </td>
                                                                 <td><?php echo date('Y-m-d H:i:s', $v['created']); ?></td>
                                                             </tr>
@@ -218,15 +230,15 @@
                     <h4 class="modal-title"><strong>Yêu cầu rút tiền</strong></h4>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="<?php echo $BASE_URL;?>" role="form">
+                    <form method="POST" action="<?php echo $BASE_URL; ?>" role="form">
                         <div class="box-body">
                             <div class="form-group">
                                 <label>Họ tên</label>
-                                <input type="text" class="form-control" name="name" value="<?php echo $AppUI['display_name'];?>" placeholder="Nhập họ tên" required="required">
+                                <input type="text" class="form-control" name="name" value="<?php echo $AppUI['display_name']; ?>" placeholder="Nhập họ tên" required="required">
                             </div>
                             <div class="form-group">
                                 <label>Số điện thoại liên hệ</label>
-                                <input type="text" class="form-control" value="<?php echo $AppUI['phone'];?>" name="phone" placeholder="Nhập số điện thoại liên hệ" required="required">
+                                <input type="text" class="form-control" value="<?php echo $AppUI['phone']; ?>" name="phone" placeholder="Nhập số điện thoại liên hệ" required="required">
                             </div>
                             <div class="form-group">
                                 <label>Số tài khoản</label>
