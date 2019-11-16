@@ -250,6 +250,24 @@ Configure::write('Config.noYes', array(
     0 => __('LABEL_NO'),
     1 => __('LABEL_YES'),
 ));
+Configure::write('Config.withDrawStatus', array(
+    0 => array(
+        'label' => 'label-info'  ,
+        'name' => 'Chờ xét duyệt'
+    ),
+    1 => array(
+        'label' => 'label-primary'  ,
+        'name' => 'Được xét duyệt - Chờ chuyển tiền'
+    ),
+    2 => array(
+        'label' => 'label-success'  ,
+        'name' => 'Đã chuyển tiền'
+    ),
+    3 => array(
+        'label' => 'label-danger'  ,
+        'name' => 'Thất bại'
+    )
+));
 
 if ($env == 'production') {
     define('VERSION_DATE', date('Ymd'));

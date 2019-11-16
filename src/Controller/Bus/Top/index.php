@@ -32,8 +32,10 @@ $param = array(
     'is_admin' => $isAdmin
 );
 $data = Api::call(Configure::read('API.url_reports_general'), $param);
+$statusConfig = Configure::read('Config.withDrawStatus');
 
 $this->set(compact(
     'data',
-    'isAdmin'
+    'isAdmin',
+    'statusConfig'
 ));

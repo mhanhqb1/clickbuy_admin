@@ -54,6 +54,14 @@ $result = Api::call(Configure::read('API.url_withdraws_list'), $param);
 $total = !empty($result['total']) ? $result['total'] : 0;
 $data = !empty($result['data']) ? $result['data'] : array();
 
+$statusConfig = Configure::read('Config.withDrawStatus');
+foreach ($data as &$v) {
+    $className = $statusConfig[$v['status']]['label'];
+    $statusName = $statusConfig[$v['status']]['name'];
+    $v['status_txt'] = "<span class='label ".$className."'>".$statusName."</span>";
+    $v['phone'] = "<a href='tel:".$v['phone']."'>".$v['phone']."</a>";
+}
+
 // Show data
 $this->SimpleTable
         ->setDataset($data)
@@ -97,7 +105,11 @@ $this->SimpleTable
             'title' => __('LABEL_CREATED'),
             'width' => 100,
             'empty' => '',
-        ));
+        ))
+        ->addColumn(array(
+            'id' => 'status_txt',
+            'title' => __('LABEL_STATUS')
+        ))
 //        ->addColumn(array(
 //            'type' => 'link',
 //            'title' => __('LABEL_EDIT'),
@@ -105,11 +117,21 @@ $this->SimpleTable
 //            'button' => true,
 //            'width' => 50,
 //        ))
-//        ->addButton(array(
-//            'type' => 'submit',
-//            'value' => __('LABEL_ADD_NEW'),
-//            'class' => 'btn btn-success btn-addnew',
-//        ))
+        ->addButton(array(
+            'type' => 'submit',
+            'value' => __('Chấp nhận'),
+            'class' => 'btn btn-info btn-accept',
+        ))
+        ->addButton(array(
+            'type' => 'submit',
+            'value' => __('Đã chuyển tiền'),
+            'class' => 'btn btn-success btn-tranfer',
+        ))
+        ->addButton(array(
+            'type' => 'submit',
+            'value' => __('Từ chối'),
+            'class' => 'btn btn-danger btn-deny',
+        ));
 //        ->addColumn(array(
 //            'id' => 'disable',
 //            'type' => 'checkbox',

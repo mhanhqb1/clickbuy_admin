@@ -184,15 +184,8 @@
                                                                 <td><?php echo $v['bank_name']; ?></td>
                                                                 <td>
                                                                     <?php
-                                                                    $className = 'label-info';
-                                                                    $statusName = 'Chờ xét duyệt';
-                                                                    if ($v['status'] == 1) {
-                                                                        $className = 'label-success';
-                                                                        $statusName = 'Thành công';
-                                                                    } elseif ($v['status'] == 2) {
-                                                                        $className = 'label-danger';
-                                                                        $statusName = 'Không được duyệt';
-                                                                    }
+                                                                    $className = $statusConfig[$v['status']]['label'];
+                                                                    $statusName = $statusConfig[$v['status']]['name'];
                                                                     ?>
                                                                     <span class="label <?php echo $className;?>"><?php echo $statusName;?></span>
                                                                 </td>
