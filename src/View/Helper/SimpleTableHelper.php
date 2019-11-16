@@ -519,6 +519,11 @@ class SimpleTableHelper extends AppHelper {
             'name' => 'actionId',
             'id' => 'actionId',
         ));
+        $html .= $this->Form->input('text', array(
+            'type' => 'hidden',
+            'name' => 'request_status',
+            'id' => 'request_status',
+        ));
         $html .= $this->Form->end();
         $html .= "</div>";
         return $html;

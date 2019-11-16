@@ -265,6 +265,18 @@ class AppController extends Controller
                             $this->Flash->success(__('MESSAGE_UPDATE_SUCCESSFULLY'));
                         }
                         break;
+                    case 'request-cancel':
+                    case 'request-tranfer':
+                    case 'request-accept':
+                        $param['status'] = $data['request_status'];
+                        Api::call(Configure::read('API.url_withdraws_updatestatus'), $param);
+                        $error = Api::getError();
+                        if ($error) {
+                            $this->Flash->error(__('MESSAGE_CANNOT_UPDATE'));
+                        } else {
+                            $this->Flash->success(__('MESSAGE_UPDATE_SUCCESSFULLY'));
+                        }
+                        break;
                     default:
                         break;
                 }

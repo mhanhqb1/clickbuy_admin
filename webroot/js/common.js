@@ -28,18 +28,33 @@ $(document).ready(function ($) {
         location.href = baseUrl + '/' + controller + '/update';
         return false;
     });
-    $(".btn-order-sell").click(function () {
-        location.href = baseUrl + '/' + controller + '/add?type=1';
-        return false;
+    
+    $(".btn-request-cancel").click(function () {
+        return withdrawRequestActions('request-cancel', 3);
     });
-    $(".btn-order-buy").click(function () {
-        location.href = baseUrl + '/' + controller + '/add?type=2';
-        return false;
+    $(".btn-request-tranfer").click(function () {
+        return withdrawRequestActions('request-tranfer', 2);
     });
-
-    // Order
-    init_order();
+    $(".btn-request-accept").click(function () {
+        return withdrawRequestActions('request-accept', 1);
+    });
 });
+
+/**
+ * Update multi (enable/disable)
+ * @param {string} type
+ * @returns {Boolean}
+ */
+function withdrawRequestActions(type, status) {
+    var items = getItemsChecked('items[]', ',');
+    if (items == '') {
+        showAlertModal('Vui lòng chọn');
+        return false;
+    }
+    $("#action").val(type);
+    $("#request_status").val(status)
+    return true;
+}
 
 /**
  * Update multi (enable/disable)

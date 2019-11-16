@@ -270,7 +270,7 @@ Configure::write('Config.withDrawStatus', array(
 ));
 
 if ($env == 'production') {
-    define('VERSION_DATE', date('Ymd'));
+    define('VERSION_DATE', date('YmdHis'));
     include_once ('production/bootstrap.php');
 } else {
     define('VERSION_DATE', date('YmdHis'));

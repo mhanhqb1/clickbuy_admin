@@ -120,17 +120,17 @@ $this->SimpleTable
         ->addButton(array(
             'type' => 'submit',
             'value' => __('Chấp nhận'),
-            'class' => 'btn btn-info btn-accept',
+            'class' => 'btn btn-info btn-request-accept',
         ))
         ->addButton(array(
             'type' => 'submit',
             'value' => __('Đã chuyển tiền'),
-            'class' => 'btn btn-success btn-tranfer',
+            'class' => 'btn btn-success btn-request-tranfer',
         ))
         ->addButton(array(
             'type' => 'submit',
             'value' => __('Từ chối'),
-            'class' => 'btn btn-danger btn-deny',
+            'class' => 'btn btn-danger btn-request-cancel',
         ));
 //        ->addColumn(array(
 //            'id' => 'disable',
