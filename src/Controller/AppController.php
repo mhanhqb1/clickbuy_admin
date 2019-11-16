@@ -272,7 +272,7 @@ class AppController extends Controller
                         Api::call(Configure::read('API.url_withdraws_updatestatus'), $param);
                         $error = Api::getError();
                         if ($error) {
-                            $this->Flash->error(__('MESSAGE_CANNOT_UPDATE'));
+                            $this->Flash->error($this->parseError($error));
                         } else {
                             $this->Flash->success(__('MESSAGE_UPDATE_SUCCESSFULLY'));
                         }
