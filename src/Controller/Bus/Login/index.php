@@ -21,7 +21,7 @@ $loginForm->setModel($form)
         'id' => 'account',
         'label' => false,
         'value' => empty($loginCookie['login']) ? '' : $loginCookie['login'],
-        'placeholder' => __('LABEL_EMAIL'),
+        'placeholder' => __('Tên tài khoản'),
         'error' => ['Not long enough' => __('This is not long enough')]
     ))
     ->addElement(array(
