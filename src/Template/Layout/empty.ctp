@@ -7,8 +7,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="description" content=""/>
         <meta name="keywords" content=""/>
-        <link href="<?php echo $BASE_URL ?>/favicon.ico" type="image/x-icon" rel="icon"/>
-        <link href="<?php echo $BASE_URL ?>/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+        <link rel="icon" href="<?php echo $BASE_URL;?>/img/cropped-favicon-32x32.png" sizes="32x32">
+        <link rel="icon" href="<?php echo $BASE_URL;?>/img/cropped-favicon-192x192.png" sizes="192x192">
+        <link rel="apple-touch-icon-precomposed" href="<?php echo $BASE_URL;?>/img/cropped-favicon-180x180.png">
+        <meta name="msapplication-TileImage" content="<?php echo $BASE_URL;?>/img/cropped-favicon-270x270.png">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo $BASE_URL ?>/css/bootstrap.min.css?<?php echo VERSION_DATE ?>"/>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css" />
